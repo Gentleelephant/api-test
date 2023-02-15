@@ -3,6 +3,10 @@ package pkg
 import (
 	"api-test/pkg/api"
 	"github.com/gin-gonic/gin"
+	"log"
+	"os"
+	"os/signal"
+	"syscall"
 )
 
 func Serve() {
@@ -12,6 +16,11 @@ func Serve() {
 	api.Hello(r)
 	api.Ping(r)
 
-	r.Run(":8080")
+	go r.Run(":9090")
+
+	sig := make(chan os.Signal)
+	signal.Notify(sig, syscall.SIGINT, syscall.SIGTERM)
+	<-sig
+	log.Println("Shutting down server...")
 
 }
