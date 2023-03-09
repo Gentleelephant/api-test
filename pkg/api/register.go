@@ -4,8 +4,7 @@ import "github.com/gin-gonic/gin"
 
 func Register(engine *gin.Engine) {
 
+	// /health
 	Health(engine)
-	GetIp(engine)
-	Ping(engine)
-	Hello(engine)
+
 }
