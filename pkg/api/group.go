@@ -7,3 +7,7 @@ func Health(engine *gin.Engine) {
 	group.GET("/ping", HealthCheck)
 	group.GET("/ip", GetIP)
 }
+
+func RootPath(engine *gin.Engine) {
+	engine.GET("/version", GetVersion)
+}

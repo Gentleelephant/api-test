@@ -1,6 +1,9 @@
 package api
 
-import "github.com/gin-gonic/gin"
+import (
+	"api-test/pkg/consts"
+	"github.com/gin-gonic/gin"
+)
 
 func HealthCheck(c *gin.Context) {
 	c.JSON(200, gin.H{
@@ -11,5 +14,11 @@ func HealthCheck(c *gin.Context) {
 func GetIP(c *gin.Context) {
 	c.JSON(200, gin.H{
 		"ip": c.ClientIP(),
+	})
+}
+
+func GetVersion(c *gin.Context) {
+	c.JSON(200, gin.H{
+		"version": consts.VERSION,
 	})
 }
