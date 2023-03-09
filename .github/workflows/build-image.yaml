@@ -27,8 +27,6 @@ jobs:
 
       - name: Build Image and
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/api-test:latest -f build/Dockerfile .
-
-      - name: Push Image
-        run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/api-test:latest
+          version=`cat VERSION`
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/api-test:$version -f build/Dockerfile .
+          docker push ${{ secrets.DOCKER_USERNAME }}/api-test:$version
