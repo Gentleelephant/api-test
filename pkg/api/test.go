@@ -19,3 +19,23 @@ func Ping(engine *gin.Engine) {
 		})
 	})
 }
+
+// Health 健康检查
+func Health(engine *gin.Engine) {
+	group := engine.Group("/health")
+	group.GET("/ping", func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			"message": "pong",
+		})
+	})
+}
+
+// GetIp 获取ip
+func GetIp(engine *gin.Engine) {
+	group := engine.Group("/ip")
+	group.GET("/get", func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			"ip": c.ClientIP(),
+		})
+	})
+}

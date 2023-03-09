@@ -13,8 +13,7 @@ func Serve() {
 
 	r := gin.Default()
 
-	api.Hello(r)
-	api.Ping(r)
+	api.Register(r)
 
 	go r.Run(":9090")
 
