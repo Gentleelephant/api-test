@@ -12,4 +12,5 @@ func Health(g *gin.RouterGroup) {
 // RootPath /apitest/version
 func RootPath(g *gin.RouterGroup) {
 	g.GET("/version", GetVersion)
+	g.GET("/config", GetConfig)
 }

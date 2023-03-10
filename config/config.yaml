@@ -1,0 +1,7 @@
+obj: this is an object
+
+mysql:
+  host: 1.1.1.1
+  username: username
+  password: password
+  port: 3306

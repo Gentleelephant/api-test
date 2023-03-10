@@ -1,6 +1,7 @@
 package pkg
 
 import (
+	"api-test/config"
 	"api-test/pkg/api"
 	"github.com/gin-gonic/gin"
 	"log"
@@ -11,6 +12,7 @@ import (
 
 func Serve() {
 
+	config.LoadConfig()
 	r := gin.Default()
 	api.Register(r)
 
