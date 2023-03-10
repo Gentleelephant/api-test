@@ -4,8 +4,11 @@ import "github.com/gin-gonic/gin"
 
 func Register(engine *gin.Engine) {
 
-	// /health
-	Health(engine)
+	// 设置统一前缀
+	group := engine.Group("/apitest")
 
-	RootPath(engine)
+	// /health
+	Health(group)
+
+	RootPath(group)
 }

@@ -2,12 +2,14 @@ package api
 
 import "github.com/gin-gonic/gin"
 
-func Health(engine *gin.Engine) {
-	group := engine.Group("/health")
+// Health /apitest/health/
+func Health(g *gin.RouterGroup) {
+	group := g.Group("/health")
 	group.GET("/ping", HealthCheck)
 	group.GET("/ip", GetIP)
 }
 
-func RootPath(engine *gin.Engine) {
-	engine.GET("/version", GetVersion)
+// RootPath /apitest/version
+func RootPath(g *gin.RouterGroup) {
+	g.GET("/version", GetVersion)
 }

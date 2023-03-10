@@ -12,7 +12,6 @@ import (
 func Serve() {
 
 	r := gin.Default()
-
 	api.Register(r)
 
 	go r.Run(":9090")
